@@ -1,5 +1,6 @@
 package KVC_Stage;
 
+import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -17,12 +18,12 @@ public class KVC_BeforeAfter {
 		System.setProperty("webdriver.chrome.driver", driverPath+"chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-
 }
 
 	@After
-	 public void tearDown() {		   
+	public void tearDown() {		   
 		   if(driver!=null) {
+			    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 				System.out.println("Closing chrome browser");
 				driver.quit();}   
 		   }
